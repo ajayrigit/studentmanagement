@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>student management project</title>
+  <link rel="stylesheet" href="/styles/style.css">
+
+
+</head>
+<body>
+  <h1>student management</h1>
+
+ 
+<br>
+
+{{#if edit_id}}
+  <form method="post" action="/edit/{{edit_id}}">
+  <label>name</label>
+  <input type="text" name="nam" value="{{edit_book.name}}"/><br>
+   <label>age</label>
+  <input type="number" name="ag" value="{{edit_book.age}}"/><br>
+   <label>Adress</label>
+  <input type="text" name="adr" value="{{edit_book.Adress}}"/></br>
+   <label>Register Number</label>
+  <input type="text" name="reg" value="{{edit_book.Register}}"/></br>
+   <label>Collagename</label>
+  <input type="text" name="clg" value="{{edit_book.collageName}}"/></br>
+  <button type="submit"> submit</button>
+  </form>
+  {{else}}
+
+
+  <form method="post" action="/update">
+  <label>name</label>
+  <input type="text" name="nam"/><br>
+   <label>age</label>
+  <input type="number" name="ag"/><br>
+   <label>Adress</label>
+  <input type="text" name="adr"/></br>
+   <label>Register Number</label>
+  <input type="text" name="reg"/></br>
+   <label>Collagename</label>
+  <input type="text" name="clg"/><br>
+  <button type="submit"> submit</button>
+  </form>
+  
+
+  
+  {{/if}}
+  <ul>
+        {{#each book}}
+
+        <li>{{this.name}}, {{this.age}},{{this.Adress}},{{this.Register}},{{this.collageName}}[<a href="/?edit_id={{this._id}}">Edit</a>,  <a href="/?delete_id={{this._id}}">delete</a>]</li>
+        {{/each}}
+    
+    </ul>
+    
+    
+  
+</body>
+</html>
+
+
+
+
+
